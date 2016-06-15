@@ -1,0 +1,43 @@
+#include <iostream> 
+#include <cstring> 
+#include <cstdio> 
+using namespace std;
+
+class TMyFirstClass
+{
+private:
+	char * nazv;
+	char type;
+
+public:
+	TMyFirstClass()
+	{
+		nazv = nullptr;
+		cout << ".ctor" << endl;
+		nazv = new char[20];
+	}
+	TMyFirstClass(char * c_nazv, char c_type)
+
+	{
+		cout << ".ctor" << endl;
+		nazv = new char[strlen(c_nazv) + 1];
+		strcpy(nazv, c_nazv);
+	}
+
+	void print()
+	{
+		cout << "Cryptometod : " << nazv << "Type shiprovaniya:" << type << endl;
+
+	}
+	void setdata(char * c_nazv, char c_type) {
+		nazv = new char[strlen(c_nazv) + 1];
+		strcpy(nazv, c_nazv);
+		type = c_type;
+	}
+
+	~TMyFirstClass()
+	{
+		delete[] nazv;
+		cout << ".dtor" << endl;
+	}
+};
